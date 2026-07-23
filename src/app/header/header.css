@@ -1,0 +1,44 @@
+/* site specific */
+.topbanner-container {
+  width: 100%;
+  height: 370px;
+  background-image: url('/images/topbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.topbannerlogo {
+  width: 55%;
+  min-width: 400px;
+  padding: 20px 0px 0px 70px;
+}
+
+.topsocialbuttons {
+  padding: 50px 0px 0px 50px;
+}
+
+.topmenubutton h4 {
+  font-size: 26px;
+}
+
+.topmenuphone {
+}
+
+@media screen and (max-width: 768px) {
+.topbanner-container {
+    height: 300px;
+  }
+.topbannerlogo {
+    width: 40%;
+    min-width: 220px;
+    padding: 20px 0px 0px 00px;
+}
+.topsocialbuttons {
+  padding: 80px 0px 0px 10px;
+}
+.topbanner-container h4 {
+  font-size: 16px;
+  line-height: 16px;
+}
+}

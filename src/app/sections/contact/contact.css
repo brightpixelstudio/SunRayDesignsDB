@@ -1,0 +1,56 @@
+.contactbanner-container {
+  width: 100%;
+  height: 950px;
+  background-image: url('/images/contactbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contactbanner-container h1 {
+  font-size: 48px;
+  color: white;
+  text-transform: initial;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.contactbanner-container p {
+  font-size: 30px;
+  color: rgb(180, 180, 180);
+  text-transform: initial;
+  line-height: 34px;
+}
+
+.contactbanner-container button {
+  font-size: 26px;
+  color: rgb(253, 253, 253);
+  background-color: #000;
+}
+
+.contactbanner-container button:hover {
+  background-color: #272727;
+  border: 1px solid #5f5f5f;
+}
+
+.error-message{
+  color: #ff2121;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+.contactbanner-container {
+    height: 1300px;
+}
+.contactbanner-container h1 {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+.contactbanner-container p {
+  font-size: 20px;
+  line-height: 28px;
+}
+#padding-column, #header-image {
+  display: none;
+}
+}
