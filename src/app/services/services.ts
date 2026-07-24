@@ -16,7 +16,7 @@ export class ApiService {
     const queryParams = new HttpParams().set('worktypeid', worktypeid.toString());
 
     //return this.http.get<Work[]>(this.apiUrl, { params: queryParams });
-    return this.http.get<Work[]>('', { params: queryParams });
+    return this.http.get<Work[]>(this.apiUrl, { params: queryParams });
   }
 
   // POST request to send data

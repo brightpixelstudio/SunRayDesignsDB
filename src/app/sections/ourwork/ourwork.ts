@@ -21,7 +21,6 @@ export class Ourwork implements OnInit {
     this.apiService.getWork(worktypeid).subscribe({
       next: (data) => {
         this.work = data;
-        console.log('results:', data);
       },
       error: (err) => console.error('Failed to load work', err),
     });
