@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FsLightbox } from 'fslightbox-angular';
+import { ApiService } from '../../services/services';
+import { Work } from '../../models/work';
 
 @Component({
   selector: 'ourwork',
@@ -7,7 +9,24 @@ import { FsLightbox } from 'fslightbox-angular';
   templateUrl: './ourwork.html',
   styleUrl: './ourwork.css',
 })
-export class Ourwork {
+export class Ourwork implements OnInit {
+  private readonly apiService = inject(ApiService);
+  work: Work[] = [];
+
+  ngOnInit(): void {
+    this.loadWork(1);
+  }
+
+  private loadWork(worktypeid: number): void {
+    this.apiService.getWork(worktypeid).subscribe({
+      next: (data) => {
+        this.work = data;
+        console.log('results:', data);
+      },
+      error: (err) => console.error('Failed to load work', err),
+    });
+  }
+
   // Controller variables
   toggler = false;
   sources = [
