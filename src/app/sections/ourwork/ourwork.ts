@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FsLightbox } from 'fslightbox-angular';
 import { ApiService } from '../../services/services';
 import type { Work } from '../../models/work';
-import { Observable } from 'rxjs';
+import { WorkType } from '../../enums/worktypes';
 
 @Component({
   selector: 'ourwork',
@@ -14,7 +14,7 @@ export class Ourwork implements OnInit {
   workList: Work[] = [];
   toggler: boolean = false;
   sources: string[] = [];
-  worktypeid: number = 1;
+  worktypeid = WorkType.Web;
 
   isVisableWebsiteContent: boolean = true;
   isVisablePrintContent: boolean = false;
@@ -25,22 +25,24 @@ export class Ourwork implements OnInit {
   currentImagePrint: string = this.currentImageDis;
   currentImageMobile: string = this.currentImageDis;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.loadWork(this.worktypeid);
-    //console.log('after' + this.workList);
   }
 
   private loadWork(worktypeid: number): void {
-    this.apiService.getWork(worktypeid).subscribe((res) => {
-      this.workList = res;
-      //this.workList = data;
+    this.apiService.getWork(worktypeid).subscribe((data: Work[]) => {
+      this.workList = data;
 
-      //if (worktypeid === 1) {
-      //  this.setSources();
-      //}
-      //console.log(this.workList);
+      // 2. Force Angular to run change detection on this component
+      this.cdr.detectChanges();
+      if (worktypeid == WorkType.Web) {
+        this.setSources();
+      }
     });
   }
 
@@ -50,55 +52,10 @@ export class Ourwork implements OnInit {
     this.workList.forEach((workItem) => {
       this.sources.push(`/images/ourwork/web/large/${workItem.number}_Image.jpg`);
     });
-
-    /*
-    this.sourcesList = [
-      '/images/ourwork/web/large/33_Image.jpg',
-      '/images/ourwork/web/large/30_Image.jpg',
-      '/images/ourwork/web/large/31_Image.jpg',
-      '/images/ourwork/web/large/32_Image.jpg',
-      '/images/ourwork/web/large/33_Image.jpg',
-      '/images/ourwork/web/large/35_Image.jpg',
-      '/images/ourwork/web/large/36_Image.jpg',
-      '/images/ourwork/web/large/37_Image.jpg',
-      '/images/ourwork/web/large/38_Image.jpg',
-      '/images/ourwork/web/large/39_Image.jpg',
-      '/images/ourwork/web/large/30_Image.jpg',
-      '/images/ourwork/web/large/27_Image.jpg',
-      '/images/ourwork/web/large/1_Image.jpg',
-      '/images/ourwork/web/large/2_Image.jpg',
-      '/images/ourwork/web/large/3_Image.jpg',
-      '/images/ourwork/web/large/4_Image.jpg',
-      '/images/ourwork/web/large/5_Image.jpg',
-      '/images/ourwork/web/large/6_Image.jpg',
-      '/images/ourwork/web/large/7_Image.jpg',
-      '/images/ourwork/web/large/8_Image.jpg',
-      '/images/ourwork/web/large/9_Image.jpg',
-      '/images/ourwork/web/large/10_Image.jpg',
-      '/images/ourwork/web/large/11_Image.jpg',
-      '/images/ourwork/web/large/12_Image.jpg',
-      '/images/ourwork/web/large/29_Image.jpg',
-      '/images/ourwork/web/large/14_Image.jpg',
-      '/images/ourwork/web/large/15_Image.jpg',
-      '/images/ourwork/web/large/16_Image.jpg',
-      '/images/ourwork/web/large/17_Image.jpg',
-      '/images/ourwork/web/large/18_Image.jpg',
-      '/images/ourwork/web/large/19_Image.jpg',
-      '/images/ourwork/web/large/20_Image.jpg',
-      '/images/ourwork/web/large/21_Image.jpg',
-      '/images/ourwork/web/large/22_Image.jpg',
-      '/images/ourwork/web/large/23_Image.jpg',
-      '/images/ourwork/web/large/24_Image.jpg',
-      '/images/ourwork/web/large/25_Image.jpg',
-      '/images/ourwork/web/large/26_Image.jpg',
-      '/images/ourwork/web/large/27_Image.jpg',
-      '/images/ourwork/web/large/28_Image.jpg',
-    ];
-    */
   }
 
   toggleWebsiteContent(): void {
-    this.worktypeid = 1;
+    this.worktypeid = WorkType.Web;
     this.isVisableWebsiteContent = true;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = false;
@@ -109,7 +66,7 @@ export class Ourwork implements OnInit {
   }
 
   toggleMobileContent() {
-    this.worktypeid = 2;
+    this.worktypeid = WorkType.Mobile;
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = true;
@@ -120,7 +77,7 @@ export class Ourwork implements OnInit {
   }
 
   togglePrintContent() {
-    this.worktypeid = 3;
+    this.worktypeid = WorkType.Print;
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = true;
     this.isVisableMobileContent = false;

@@ -32,253 +32,158 @@
       <div class="col-1"></div>
     </div>
     @if (isVisableWebsiteContent === true) {
-      {{ workList.length }}
       <div class="col-12 gallerydiv">
         <fslightbox [toggler]="toggler" [sources]="sources" />
         <button id="GalleryButton" (click)="toggler = !toggler">View Gallery</button>
       </div>
-      <div id="DesignsWebsiteContent" class="designs">
-        @if (workList.length > 0) {
-          @for (thework of workList; track thework.name; let i = $index; let isLast = $last) {
-            @if (i % 4 === 0) {
-              <div class="row">
-                <div class="col-3">
-                  <div class="row pt-4 ps-2 design">
-                    <a
-                      href="/images/ourwork/web/large/{{ thework.number }}_Image.jpg"
-                      target="_blank"
-                      data-gallery="example-gallery"
-                      class="col-l-3"
-                    >
-                      <img
-                        src="/images/ourwork/web/{{ thework.number }}_Image.jpg"
-                        class="img-fluid img-thumbnail"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="row pt-4 ps-2 design">
-                    <a
-                      href="/images/ourwork/web/large/{{ thework.number + 1 }}_Image.jpg"
-                      target="_blank"
-                      data-gallery="example-gallery"
-                      class="col-l-3"
-                    >
-                      <img
-                        src="/images/ourwork/web/{{ thework.number + 1 }}_Image.jpg"
-                        class="img-fluid img-thumbnail"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="row pt-4 ps-2 design">
-                    <a
-                      href="/images/ourwork/web/large/{{ thework.number + 2 }}_Image.jpg"
-                      target="_blank"
-                      data-gallery="example-gallery"
-                      class="col-l-3"
-                    >
-                      <img
-                        src="/images/ourwork/web/{{ thework.number + 2 }}_Image.jpg"
-                        class="img-fluid img-thumbnail"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="row pt-4 ps-2 design">
-                    <a
-                      href="/images/ourwork/web/large/{{ thework.number + 3 }}_Image.jpg"
-                      target="_blank"
-                      data-gallery="example-gallery"
-                      class="col-l-3"
-                    >
-                      <img
-                        src="/images/ourwork/web/{{ thework.number + 3 }}_Image.jpg"
-                        class="img-fluid img-thumbnail"
-                      />
-                    </a>
-                  </div>
+      <div id="DesignsWebsiteContent" class="designs pb-5">
+        @for (thework of workList; track thework.workid; let i = $index) {
+          @if (i % 4 === 0) {
+            <div class="row">
+              <div class="col-3">
+                <div class="row pt-4 ps-2 design">
+                  <a
+                    href="/images/ourwork/web/large/{{ thework.number }}_Image.jpg"
+                    target="_blank"
+                    data-gallery="example-gallery"
+                    class="col-l-3"
+                  >
+                    <img
+                      src="/images/ourwork/web/{{ thework.number }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </a>
                 </div>
               </div>
-            }
+              <div class="col-3">
+                <div class="row pt-4 ps-2 design">
+                  <a
+                    href="/images/ourwork/web/large/{{ thework.number + 1 }}_Image.jpg"
+                    target="_blank"
+                    data-gallery="example-gallery"
+                    class="col-l-3"
+                  >
+                    <img
+                      src="/images/ourwork/web/{{ thework.number + 1 }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="row pt-4 ps-2 design">
+                  <a
+                    href="/images/ourwork/web/large/{{ thework.number + 2 }}_Image.jpg"
+                    target="_blank"
+                    data-gallery="example-gallery"
+                    class="col-l-3"
+                  >
+                    <img
+                      src="/images/ourwork/web/{{ thework.number + 2 }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="row pt-4 ps-2 design">
+                  <a
+                    href="/images/ourwork/web/large/{{ thework.number + 3 }}_Image.jpg"
+                    target="_blank"
+                    data-gallery="example-gallery"
+                    class="col-l-3"
+                  >
+                    <img
+                      src="/images/ourwork/web/{{ thework.number + 3 }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
           }
         }
       </div>
     }
     @if (isVisablePrintContent) {
-      <div id="DesignsPrintContent" class="designs">
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/4_Image.jpg" class="img-fluid img-thumbnail" />
+      <div id="DesignsPrintContent" class="designs pb-5">
+        @for (thework of workList; track thework.workid; let i = $index) {
+          @if (i % 3 === 0) {
+            <div class="row">
+              @if (i < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/print/{{ thework.number }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
+              @if (i + 1 < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/print/{{ thework.number + 1 }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
+              @if (i + 2 < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/print/{{ thework.number + 2 }}_Image.jpg"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
             </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/5_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/6_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/1_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/2_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/3_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/7_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/8_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/9_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/10_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/11_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/12_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/13_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/14_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/15_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="images/ourwork/print/25_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/17_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/18_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/19_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/20_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/21_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/22_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/print/23_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 pb-5 design">
-              <img src="/images/ourwork/print/24_Image.jpg" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
+          }
+        }
       </div>
     }
     @if (isVisableMobileContent) {
-      <div id="DesignsMobileContent" class="designs">
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/mobile/4_Image.png" class="img-fluid img-thumbnail" />
+      <div id="DesignsMobileContent" class="designs pb-5">
+        @for (thework of workList; track thework.workid; let i = $index) {
+          @if (i % 3 === 0) {
+            {{ workList.length }}
+            <div class="row">
+              @if (i < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/mobile/{{ thework.number }}_Image.png"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
+              @if (i + 1 < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/mobile/{{ thework.number + 1 }}_Image.png"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
+              @if (i + 2 < workList.length) {
+                <div class="col-4">
+                  <div class="row pt-4 ps-2 design">
+                    <img
+                      src="/images/ourwork/mobile/{{ thework.number + 2 }}_Image.png"
+                      class="img-fluid img-thumbnail"
+                    />
+                  </div>
+                </div>
+              }
             </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/mobile/5_Image.png" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/mobile/1_Image.png" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row pt-4 ps-2 design">
-              <img src="/images/ourwork/mobile/2_Image.png" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row pt-4 ps-2 pb-5 design">
-              <img src="/images/ourwork/mobile/3_Image.png" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
+          }
+        }
       </div>
     }
   </div>

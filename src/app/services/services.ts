@@ -15,7 +15,6 @@ export class ApiService {
   getWork(worktypeid: number): Observable<Work[]> {
     const queryParams = new HttpParams().set('worktypeid', worktypeid.toString());
 
-    //return this.http.get<Work[]>(this.apiUrl, { params: queryParams });
     return this.http.get<Work[]>(this.apiUrl, { params: queryParams });
   }
 
