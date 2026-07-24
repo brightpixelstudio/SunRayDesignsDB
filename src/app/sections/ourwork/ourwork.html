@@ -31,76 +31,79 @@
       </div>
       <div class="col-1"></div>
     </div>
-    @if (isVisableWebsiteContent) {
+    @if (isVisableWebsiteContent === true) {
+      {{ workList.length }}
       <div class="col-12 gallerydiv">
         <fslightbox [toggler]="toggler" [sources]="sources" />
         <button id="GalleryButton" (click)="toggler = !toggler">View Gallery</button>
       </div>
       <div id="DesignsWebsiteContent" class="designs">
-        @for (user of work; track user.name; let i = $index; let isLast = $last) {
-          @if (i % 4 === 0) {
-            <div class="row">
-              <div class="col-3">
-                <div class="row pt-4 ps-2 design">
-                  <a
-                    href="/images/ourwork/web/large/{{ user.number }}_Image.jpg"
-                    target="_blank"
-                    data-gallery="example-gallery"
-                    class="col-l-3"
-                  >
-                    <img
-                      src="/images/ourwork/web/{{ user.number }}_Image.jpg"
-                      class="img-fluid img-thumbnail"
-                    />
-                  </a>
+        @if (workList.length > 0) {
+          @for (thework of workList; track thework.name; let i = $index; let isLast = $last) {
+            @if (i % 4 === 0) {
+              <div class="row">
+                <div class="col-3">
+                  <div class="row pt-4 ps-2 design">
+                    <a
+                      href="/images/ourwork/web/large/{{ thework.number }}_Image.jpg"
+                      target="_blank"
+                      data-gallery="example-gallery"
+                      class="col-l-3"
+                    >
+                      <img
+                        src="/images/ourwork/web/{{ thework.number }}_Image.jpg"
+                        class="img-fluid img-thumbnail"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row pt-4 ps-2 design">
+                    <a
+                      href="/images/ourwork/web/large/{{ thework.number + 1 }}_Image.jpg"
+                      target="_blank"
+                      data-gallery="example-gallery"
+                      class="col-l-3"
+                    >
+                      <img
+                        src="/images/ourwork/web/{{ thework.number + 1 }}_Image.jpg"
+                        class="img-fluid img-thumbnail"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row pt-4 ps-2 design">
+                    <a
+                      href="/images/ourwork/web/large/{{ thework.number + 2 }}_Image.jpg"
+                      target="_blank"
+                      data-gallery="example-gallery"
+                      class="col-l-3"
+                    >
+                      <img
+                        src="/images/ourwork/web/{{ thework.number + 2 }}_Image.jpg"
+                        class="img-fluid img-thumbnail"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row pt-4 ps-2 design">
+                    <a
+                      href="/images/ourwork/web/large/{{ thework.number + 3 }}_Image.jpg"
+                      target="_blank"
+                      data-gallery="example-gallery"
+                      class="col-l-3"
+                    >
+                      <img
+                        src="/images/ourwork/web/{{ thework.number + 3 }}_Image.jpg"
+                        class="img-fluid img-thumbnail"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div class="col-3">
-                <div class="row pt-4 ps-2 design">
-                  <a
-                    href="/images/ourwork/web/large/{{ user.number + 1 }}_Image.jpg"
-                    target="_blank"
-                    data-gallery="example-gallery"
-                    class="col-l-3"
-                  >
-                    <img
-                      src="/images/ourwork/web/{{ user.number + 1 }}_Image.jpg"
-                      class="img-fluid img-thumbnail"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="row pt-4 ps-2 design">
-                  <a
-                    href="/images/ourwork/web/large/{{ user.number + 2 }}_Image.jpg"
-                    target="_blank"
-                    data-gallery="example-gallery"
-                    class="col-l-3"
-                  >
-                    <img
-                      src="/images/ourwork/web/{{ user.number + 2 }}_Image.jpg"
-                      class="img-fluid img-thumbnail"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="row pt-4 ps-2 design">
-                  <a
-                    href="/images/ourwork/web/large/{{ user.number + 3 }}_Image.jpg"
-                    target="_blank"
-                    data-gallery="example-gallery"
-                    class="col-l-3"
-                  >
-                    <img
-                      src="/images/ourwork/web/{{ user.number + 3 }}_Image.jpg"
-                      class="img-fluid img-thumbnail"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+            }
           }
         }
       </div>

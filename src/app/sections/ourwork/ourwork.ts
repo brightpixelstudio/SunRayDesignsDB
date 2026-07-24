@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FsLightbox } from 'fslightbox-angular';
 import { ApiService } from '../../services/services';
-import { Work } from '../../models/work';
+import type { Work } from '../../models/work';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ourwork',
@@ -10,29 +11,48 @@ import { Work } from '../../models/work';
   styleUrl: './ourwork.css',
 })
 export class Ourwork implements OnInit {
-  private readonly apiService = inject(ApiService);
-
-  work: Work[] = [];
+  workList: Work[] = [];
   toggler: boolean = false;
   sources: string[] = [];
+  worktypeid: number = 1;
+
+  isVisableWebsiteContent: boolean = true;
+  isVisablePrintContent: boolean = false;
+  isVisableMobileContent: boolean = false;
+  currentImageOver: string = 'images/bluebarnov.png';
+  currentImageDis: string = 'images/barndis.png';
+  currentImageWebsite: string = this.currentImageOver;
+  currentImagePrint: string = this.currentImageDis;
+  currentImageMobile: string = this.currentImageDis;
+
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.toggleWebsiteContent();
+    this.loadWork(this.worktypeid);
+    //console.log('after' + this.workList);
   }
 
   private loadWork(worktypeid: number): void {
-    this.apiService.getWork(worktypeid).subscribe({
-      next: (data) => {
-        this.work = data;
-        this.setSources();
-      },
-      error: (err) => console.error('Failed to load work', err),
+    this.apiService.getWork(worktypeid).subscribe((res) => {
+      this.workList = res;
+      //this.workList = data;
+
+      //if (worktypeid === 1) {
+      //  this.setSources();
+      //}
+      //console.log(this.workList);
     });
   }
 
-  private setSources() {
+  private setSources(): void {
     this.toggler = false;
-    this.sources = [
+    this.sources = [];
+    this.workList.forEach((workItem) => {
+      this.sources.push(`/images/ourwork/web/large/${workItem.number}_Image.jpg`);
+    });
+
+    /*
+    this.sourcesList = [
       '/images/ourwork/web/large/33_Image.jpg',
       '/images/ourwork/web/large/30_Image.jpg',
       '/images/ourwork/web/large/31_Image.jpg',
@@ -74,45 +94,39 @@ export class Ourwork implements OnInit {
       '/images/ourwork/web/large/27_Image.jpg',
       '/images/ourwork/web/large/28_Image.jpg',
     ];
+    */
   }
 
-  // Controller variables
-  isVisableWebsiteContent: boolean = true;
-  isVisablePrintContent: boolean = false;
-  isVisableMobileContent: boolean = false;
-  currentImageOver: string = 'images/bluebarnov.png';
-  currentImageDis: string = 'images/barndis.png';
-  currentImageWebsite: string = this.currentImageOver;
-  currentImagePrint: string = this.currentImageDis;
-  currentImageMobile: string = this.currentImageDis;
-
-  toggleWebsiteContent() {
-    this.loadWork(1);
+  toggleWebsiteContent(): void {
+    this.worktypeid = 1;
     this.isVisableWebsiteContent = true;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = false;
     this.currentImageWebsite = this.currentImageOver;
     this.currentImagePrint = this.currentImageDis;
     this.currentImageMobile = this.currentImageDis;
+    this.loadWork(this.worktypeid);
   }
 
   toggleMobileContent() {
-    this.loadWork(2);
+    this.worktypeid = 2;
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = true;
     this.currentImageWebsite = this.currentImageDis;
     this.currentImagePrint = this.currentImageDis;
     this.currentImageMobile = this.currentImageOver;
+    this.loadWork(this.worktypeid);
   }
 
   togglePrintContent() {
-    this.loadWork(3);
+    this.worktypeid = 3;
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = true;
     this.isVisableMobileContent = false;
     this.currentImageWebsite = this.currentImageDis;
     this.currentImagePrint = this.currentImageOver;
     this.currentImageMobile = this.currentImageDis;
+    this.loadWork(this.worktypeid);
   }
 }
