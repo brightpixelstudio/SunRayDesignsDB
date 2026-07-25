@@ -149,7 +149,6 @@
       <div id="DesignsMobileContent" class="designs pb-5">
         @for (thework of workList; track thework.workid; let i = $index) {
           @if (i % 3 === 0) {
-            {{ workList.length }}
             <div class="row">
               @if (i < workList.length) {
                 <div class="col-4">

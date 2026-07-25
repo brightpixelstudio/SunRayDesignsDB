@@ -11,15 +11,15 @@ export class Samplebanner {
   // Controller variables
   toggler = false;
   sources = [
-    '/images/ourwork/web/large/33_Image.jpg',
-    '/images/ourwork/web/large/34_Image.jpg',
-    '/images/ourwork/web/large/35_Image.jpg',
-    '/images/ourwork/web/large/36_Image.jpg',
-    '/images/ourwork/web/large/37_Image.jpg',
-    '/images/ourwork/web/large/38_Image.jpg',
-    '/images/ourwork/web/large/39_Image.jpg',
-    '/images/ourwork/web/large/40_Image.jpg',
-    '/images/ourwork/web/large/27_Image.jpg',
-    '/images/ourwork/web/large/28_Image.jpg',
+    '/images/ourwork/web/large/1_Image.jpg',
+    '/images/ourwork/web/large/2_Image.jpg',
+    '/images/ourwork/web/large/3_Image.jpg',
+    '/images/ourwork/web/large/4_Image.jpg',
+    '/images/ourwork/web/large/5_Image.jpg',
+    '/images/ourwork/web/large/6_Image.jpg',
+    '/images/ourwork/web/large/7_Image.jpg',
+    '/images/ourwork/web/large/8_Image.jpg',
+    '/images/ourwork/web/large/9_Image.jpg',
+    '/images/ourwork/web/large/10_Image.jpg',
   ];
 }
