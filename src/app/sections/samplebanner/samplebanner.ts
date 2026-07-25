@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FsLightbox } from 'fslightbox-angular';
+import type { Work } from '../../models/work';
+import { WorkType } from '../../enums/worktypes';
+import { ApiService } from '../../services/services';
 
 @Component({
   selector: 'samplebanner',
@@ -8,8 +11,41 @@ import { FsLightbox } from 'fslightbox-angular';
   styleUrl: './samplebanner.css',
 })
 export class Samplebanner {
+  toggler: boolean = false;
+  workList: Work[] = [];
+  sources: string[] = [];
+  worktypeid = WorkType.Web;
+
+  constructor(
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    this.loadWork(this.worktypeid);
+  }
+
+  private loadWork(worktypeid: number): void {
+    this.apiService.getWork(worktypeid).subscribe((data: Work[]) => {
+      this.workList = data;
+
+      // 2. Force Angular to run change detection on this component
+      this.cdr.detectChanges();
+      if (worktypeid == WorkType.Web) {
+        this.setSources();
+      }
+    });
+  }
+
+  private setSources(): void {
+    this.sources = [];
+    this.workList.forEach((workItem) => {
+      this.sources.push(`/images/ourwork/web/large/${workItem.number}_Image.jpg`);
+    });
+  }
+
   // Controller variables
-  toggler = false;
+  /*
   sources = [
     '/images/ourwork/web/large/1_Image.jpg',
     '/images/ourwork/web/large/2_Image.jpg',
@@ -22,4 +58,5 @@ export class Samplebanner {
     '/images/ourwork/web/large/9_Image.jpg',
     '/images/ourwork/web/large/10_Image.jpg',
   ];
+  */
 }
