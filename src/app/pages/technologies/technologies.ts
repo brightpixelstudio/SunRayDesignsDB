@@ -3,7 +3,6 @@ import { TechnologyType } from '../../enums/technologytypes';
 import { Technology } from '../../models/technology';
 import { ApiService } from '../../services/services';
 
-// Minimal local types to resolve compile errors. Replace or move to shared types as needed.
 @Component({
   selector: 'technologies',
   imports: [],
@@ -26,7 +25,6 @@ export class Technologies implements OnInit {
   private loadTechnologies(technologytypeid: number): void {
     this.apiService.getTechnology(technologytypeid).subscribe((data: Technology[]) => {
       this.technologyList = data;
-      console.log(this.technologyList);
 
       this.cdr.detectChanges();
     });
