@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Work } from '../models/work';
 import { Technology } from '../models/technology';
+import { Quote } from '../models/quote';
 
 @Injectable({
   providedIn: 'root', // Makes the service a global singleton
@@ -26,6 +27,11 @@ export class ApiService {
     return this.http.get<Technology[]>(this.apiUrl + '/GetTechnologyByType', {
       params: queryParams,
     });
+  }
+
+  // GET request to fetch data
+  getQuotes(): Observable<Quote[]> {
+    return this.http.get<Quote[]>(this.apiUrl + '/GetQuotes');
   }
 
   // POST request to send data
