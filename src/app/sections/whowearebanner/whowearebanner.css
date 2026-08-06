@@ -10,18 +10,18 @@
 
 .disabled {
   opacity: 30%;
-  color: #000
+  color: #000;
 }
 
 .whoweare-container .barn h1.disabled {
   opacity: 30%;
 }
 .whoweare-container h1 {
-  color: #0374f5
+  color: #0374f5;
 }
 .whoweare-container .barn h1.disabled {
   opacity: 30%;
-  color: #000
+  color: #000;
 }
 
 .whoweare-container h2 {
@@ -39,7 +39,20 @@
 .whoweare-container p {
   font-size: 18px;
   line-height: 24px;
-  color: #646464
+  color: #646464;
+}
+
+.industrysection {
+  border-right: 1px solid #c9c9c9;
+}
+
+li {
+  font-size: 18px;
+  line-height: 28px;
+}
+.fa-check {
+  color: #dd3f00;
+  padding-right: 20px;
 }
 
 #WhoWeAreOurProcessContent h3 {
@@ -59,23 +72,26 @@
 }
 
 @media screen and (max-width: 768px) {
-.whoweare-container h1 {
+  .whoweare-container h1 {
     font-size: 24px;
-    line-height: 20px;  
-}
-.whoweare-container h2 {
+    line-height: 20px;
+  }
+  .whoweare-container h2 {
     font-size: 30px;
     padding-bottom: 20px;
   }
-#WhoWeAreOurProcessContent h3 {
-  padding-bottom: 10px;
-  font-size: 22px;
-}
-#WhoWeAreOurProcessContent h4 {
-  padding-bottom: 10px;
-  font-size: 20px;
-}
-#barncolumn {
-  display: none;
-}
+  #WhoWeAreOurProcessContent h3 {
+    padding-bottom: 10px;
+    font-size: 22px;
+  }
+  #WhoWeAreOurProcessContent h4 {
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+  #barncolumn {
+    display: none;
+  }
+  .industrysection {
+    border-bottom: 1px solid #c9c9c9;
+  }
 }
