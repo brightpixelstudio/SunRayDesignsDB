@@ -53,150 +53,151 @@
         ></button>
       </div>
 
-      <!-- Main Slides Wrappe
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row justify-content-center" style="height: 40vh">
-            <a
-              href="/images/ourwork/web/large/{{ workList[0].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[0].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="/images/ourwork/web/large/{{ workList[1].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[1].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
+      <!-- Main Slides Wrappet -->
+      @if (workList.length > 0) {
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center" style="height: 40vh">
+              <a
+                href="/images/ourwork/web/large/{{ workList[0].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[0].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+              <a
+                href="/images/ourwork/web/large/{{ workList[1].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[1].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center" style="height: 40vh">
+              <a
+                href="/images/ourwork/web/large/{{ workList[2].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[2].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+              <a
+                href="/images/ourwork/web/large/{{ workList[3].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[3].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center" style="height: 40vh">
+              <a
+                href="/images/ourwork/web/large/{{ workList[4].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[4].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+              <a
+                href="/images/ourwork/web/large/{{ workList[5].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[5].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center" style="height: 40vh">
+              <a
+                href="/images/ourwork/web/large/{{ workList[6].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[6].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+              <a
+                href="/images/ourwork/web/large/{{ workList[7].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[7].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center" style="height: 40vh">
+              <a
+                href="/images/ourwork/web/large/{{ workList[8].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[8].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+              <a
+                href="/images/ourwork/web/large/{{ workList[9].number }}_Image.jpg"
+                data-gallery="example-gallery"
+                style="width: auto !important"
+                target="_blank"
+              >
+                <img
+                  class="col-sm-4"
+                  src="/images/ourwork/web/{{ workList[9].number }}_Image.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <div class="row justify-content-center" style="height: 40vh">
-            <a
-              href="/images/ourwork/web/large/{{ workList[2].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[2].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="/images/ourwork/web/large/{{ workList[3].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[3].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row justify-content-center" style="height: 40vh">
-            <a
-              href="/images/ourwork/web/large/{{ workList[4].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[4].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="/images/ourwork/web/large/{{ workList[5].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[5].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row justify-content-center" style="height: 40vh">
-            <a
-              href="/images/ourwork/web/large/{{ workList[6].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[6].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="/images/ourwork/web/large/{{ workList[7].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[7].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row justify-content-center" style="height: 40vh">
-            <a
-              href="/images/ourwork/web/large/{{ workList[8].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[8].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-            <a
-              href="/images/ourwork/web/large/{{ workList[9].number }}_Image.jpg"
-              data-gallery="example-gallery"
-              style="width: auto !important"
-              target="_blank"
-            >
-              <img
-                class="col-sm-4"
-                src="/images/ourwork/web/{{ workList[9].number }}_Image.jpg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-      -->
+      }
 
       <!-- Left Navigation Arrow Control Button -->
       <button

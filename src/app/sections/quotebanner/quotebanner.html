@@ -33,78 +33,80 @@
 
       <!-- Main Slides Wrapper -->
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-1 ps-5 quotelogo">
-              <img class="img-fluid" src="/images/quote.png" alt="" />
+        @if (quoteList.length > 0) {
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-1 ps-5 quotelogo">
+                <img class="img-fluid" src="/images/quote.png" alt="" />
+              </div>
+              <div class="col-10">
+                <h2>
+                  {{ quoteList[0].quote }}
+                </h2>
+              </div>
             </div>
-            <div class="col-10">
-              <h2>
-                {{ quoteList[0].quote }}
-              </h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-11 p-3 text-end">
-              <h3>- {{ quoteList[0].user }}</h3>
-            </div>
-            <div class="col-1"></div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-1 ps-5 quotelogo">
-              <img class="img-fluid" src="/images/quote.png" alt="" />
-            </div>
-            <div class="col-10">
-              <h2>
-                {{ quoteList[1].quote }}
-              </h2>
+            <div class="row">
+              <div class="col-11 p-3 text-end">
+                <h3>- {{ quoteList[0].user }}</h3>
+              </div>
+              <div class="col-1"></div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-11 p-3 text-end">
-              <h3>- {{ quoteList[1].user }}</h3>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-1 ps-5 quotelogo">
+                <img class="img-fluid" src="/images/quote.png" alt="" />
+              </div>
+              <div class="col-10">
+                <h2>
+                  {{ quoteList[1].quote }}
+                </h2>
+              </div>
             </div>
-            <div class="col-1"></div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-1 ps-5 quotelogo">
-              <img class="img-fluid" src="/images/quote.png" alt="" />
-            </div>
-            <div class="col-10">
-              <h2>
-                {{ quoteList[2].quote }}
-              </h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-11 p-3 text-end">
-              <h3>- {{ quoteList[2].user }}</h3>
-            </div>
-            <div class="col-1"></div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-1 ps-5 quotelogo">
-              <img class="img-fluid" src="/images/quote.png" alt="" />
-            </div>
-            <div class="col-10">
-              <h2>
-                {{ quoteList[3].quote }}
-              </h2>
+            <div class="row">
+              <div class="col-11 p-3 text-end">
+                <h3>- {{ quoteList[1].user }}</h3>
+              </div>
+              <div class="col-1"></div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-11 p-3 text-end">
-              <h3>- {{ quoteList[3].user }}</h3>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-1 ps-5 quotelogo">
+                <img class="img-fluid" src="/images/quote.png" alt="" />
+              </div>
+              <div class="col-10">
+                <h2>
+                  {{ quoteList[2].quote }}
+                </h2>
+              </div>
             </div>
-            <div class="col-1"></div>
+            <div class="row">
+              <div class="col-11 p-3 text-end">
+                <h3>- {{ quoteList[2].user }}</h3>
+              </div>
+              <div class="col-1"></div>
+            </div>
           </div>
-        </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-1 ps-5 quotelogo">
+                <img class="img-fluid" src="/images/quote.png" alt="" />
+              </div>
+              <div class="col-10">
+                <h2>
+                  {{ quoteList[3].quote }}
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-11 p-3 text-end">
+                <h3>- {{ quoteList[3].user }}</h3>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        }
       </div>
     </div>
   </div>

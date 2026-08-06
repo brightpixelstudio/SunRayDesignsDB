@@ -28,7 +28,6 @@ export class Technologybanner implements OnInit {
     this.apiService.getTechnology(technologytypeid).subscribe((data: Technology[]) => {
       //this.technologyList = data.slice(0, this.maxAllowedAmount);
       this.technologyList = data;
-      console.log(this.technologyList.length);
 
       this.cdr.detectChanges();
     });
