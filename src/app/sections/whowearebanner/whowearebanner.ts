@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ComponentFactoryResolver } from '@angular/core';
+import { Industry } from '../../models/industry';
+import { ApiService } from '../../services/services';
 
 @Component({
   selector: 'whowearebanner',
@@ -6,7 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './whowearebanner.html',
   styleUrl: './whowearebanner.css',
 })
-export class Whowearebanner {
+export class Whowearebanner implements OnInit {
+  industryList: Industry[] = [];
   isVisableWhoWeAreContent: boolean = true;
   isVisableCoreValuesContent: boolean = false;
   isVisableOurProcessContent: boolean = false;
@@ -17,6 +20,23 @@ export class Whowearebanner {
   currentImageCoreValues: string = this.currentImageDis;
   currentImageOurProcess: string = this.currentImageDis;
   currentImageIndustries: string = this.currentImageDis;
+
+  constructor(
+    private apiService: ApiService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    this.loadQuotes();
+  }
+
+  private loadQuotes(): void {
+    this.apiService.getIndustries().subscribe((data: Industry[]) => {
+      this.industryList = data;
+
+      this.cdr.detectChanges();
+    });
+  }
 
   togglesWhoWeAreContent() {
     this.isVisableWhoWeAreContent = true;

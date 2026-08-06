@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Work } from '../models/work';
 import { Technology } from '../models/technology';
 import { Quote } from '../models/quote';
+import { Industry } from '../models/industry';
 
 @Injectable({
   providedIn: 'root', // Makes the service a global singleton
@@ -32,6 +33,11 @@ export class ApiService {
   // GET request to fetch data
   getQuotes(): Observable<Quote[]> {
     return this.http.get<Quote[]>(this.apiUrl + '/GetQuotes');
+  }
+
+  // GET request to fetch data
+  getIndustries(): Observable<Industry[]> {
+    return this.http.get<Industry[]>(this.apiUrl + '/GetIndustries');
   }
 
   // POST request to send data

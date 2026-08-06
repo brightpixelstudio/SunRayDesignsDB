@@ -421,152 +421,65 @@
           <div class="row p-3">
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Financial
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Medical
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Education
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Political
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Retail
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Attorney
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Cooking / Restaurants
-                </li>
+                @for (industry of industryList.slice(0, 6); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Insurance
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Business
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Sales
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Fitness / Training
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Fashion Wear /
-                  Clothing
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Pet Grooming
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Pet School
-                </li>
+                @for (industry of industryList.slice(7, 13); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Automotive
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Psychology
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Property Management
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Cleaning Services
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Real Estate / Net
-                  Sheets
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Military
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Automotive
-                </li>
+                @for (industry of industryList.slice(14, 20); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Night Clubs
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Catering
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Dating
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Stage Speakers
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Yaught / Ship
-                  Restoration
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Festivals
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Photography
-                </li>
+                @for (industry of industryList.slice(21, 27); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Staffing
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Jewerly
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Solar Panels
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Fishing Charters
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Lead Aquisition
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Print / Logo Services
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Tree Removal
-                </li>
+                @for (industry of industryList.slice(28, 34); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
             <div class="col-lg-2 col-sm-12 industrysection">
               <ul class="fa-ul">
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Authors
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Billiards
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>PEO
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Pawn shops
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Marching Coordination
-                </li>
-                <li>
-                  <span class="fa-li"><i class="fa-solid fa-check"></i></span>Healthcare
-                </li>
+                @for (industry of industryList.slice(35, 42); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
+              </ul>
+            </div>
+            <div class="col-lg-2 col-sm-12 industrysection">
+              <ul class="fa-ul">
+                @for (industry of industryList.slice(43, 49); track industry) {
+                  <li>
+                    <span class="fa-li"><i class="fa-solid fa-check"></i></span>{{ industry.name }}
+                  </li>
+                }
               </ul>
             </div>
           </div>
