@@ -15,6 +15,7 @@ export class Ourwork implements OnInit {
   toggler: boolean = false;
   sources: string[] = [];
   worktypeid = WorkType.Web;
+  myHtmlContent: string = '';
 
   isVisableWebsiteContent: boolean = true;
   isVisablePrintContent: boolean = false;
@@ -39,6 +40,7 @@ export class Ourwork implements OnInit {
   private loadWork(worktypeid: number): void {
     this.apiService.getWork(worktypeid).subscribe((data: Work[]) => {
       this.workList = data;
+      this.myHtmlContent = this.workList[0].content;
 
       // 2. Force Angular to run change detection on this component
       this.cdr.detectChanges();

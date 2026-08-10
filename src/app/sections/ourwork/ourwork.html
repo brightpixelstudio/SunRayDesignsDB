@@ -209,7 +209,7 @@
               <h3>{{ workList[0].title }}</h3>
             </a>
             <p>
-              {{ workList[0].content }}
+              <span [innerHTML]="myHtmlContent"></span>
             </p>
             <h4>
               <a href="{{ workList[0].url }}" target="_blank"> Visit {{ workList[0].title }}</a>
