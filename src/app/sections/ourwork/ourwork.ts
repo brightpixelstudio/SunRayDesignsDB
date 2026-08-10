@@ -19,11 +19,13 @@ export class Ourwork implements OnInit {
   isVisableWebsiteContent: boolean = true;
   isVisablePrintContent: boolean = false;
   isVisableMobileContent: boolean = false;
+  isVisableLatestContent: boolean = false;
   currentImageOver: string = 'images/bluebarnov.png';
   currentImageDis: string = 'images/barndis.png';
   currentImageWebsite: string = this.currentImageOver;
   currentImagePrint: string = this.currentImageDis;
   currentImageMobile: string = this.currentImageDis;
+  currentImageLatest: string = this.currentImageDis;
 
   constructor(
     private apiService: ApiService,
@@ -59,9 +61,11 @@ export class Ourwork implements OnInit {
     this.isVisableWebsiteContent = true;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = false;
+    this.isVisableLatestContent = false;
     this.currentImageWebsite = this.currentImageOver;
     this.currentImagePrint = this.currentImageDis;
     this.currentImageMobile = this.currentImageDis;
+    this.currentImageLatest = this.currentImageDis;
     this.loadWork(this.worktypeid);
   }
 
@@ -70,9 +74,11 @@ export class Ourwork implements OnInit {
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = false;
     this.isVisableMobileContent = true;
+    this.isVisableLatestContent = false;
     this.currentImageWebsite = this.currentImageDis;
     this.currentImagePrint = this.currentImageDis;
     this.currentImageMobile = this.currentImageOver;
+    this.currentImageLatest = this.currentImageDis;
     this.loadWork(this.worktypeid);
   }
 
@@ -81,9 +87,23 @@ export class Ourwork implements OnInit {
     this.isVisableWebsiteContent = false;
     this.isVisablePrintContent = true;
     this.isVisableMobileContent = false;
+    this.isVisableLatestContent = false;
     this.currentImageWebsite = this.currentImageDis;
     this.currentImagePrint = this.currentImageOver;
     this.currentImageMobile = this.currentImageDis;
+    this.currentImageLatest = this.currentImageDis;
+    this.loadWork(this.worktypeid);
+  }
+  toggleLatestContent() {
+    this.worktypeid = WorkType.Latest;
+    this.isVisableWebsiteContent = false;
+    this.isVisablePrintContent = false;
+    this.isVisableMobileContent = false;
+    this.isVisableLatestContent = true;
+    this.currentImageWebsite = this.currentImageDis;
+    this.currentImagePrint = this.currentImageDis;
+    this.currentImageMobile = this.currentImageDis;
+    this.currentImageLatest = this.currentImageOver;
     this.loadWork(this.worktypeid);
   }
 }

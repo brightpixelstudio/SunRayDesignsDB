@@ -3,4 +3,7 @@ export interface Work {
   number: number;
   worktypeid: number;
   name: string;
+  url: string;
+  content: string;
+  title: string;
 }

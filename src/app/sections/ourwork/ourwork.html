@@ -1,7 +1,6 @@
 <div class="row" id="work-section">
   <div class="designs-container col-12">
     <div class="row pt-5 ps-4">
-      <div class="col-1"></div>
       <div
         id="DesignsWebsite"
         class="col-3 barn"
@@ -29,7 +28,15 @@
         <img [src]="currentImageMobile" alt="" class="img-fluid" />
         <h1 [class]="isVisableMobileContent ? '' : 'disabled'">Mobile</h1>
       </div>
-      <div class="col-1"></div>
+      <div
+        id="DesignsMobile"
+        class="col-3 barn"
+        (click)="toggleLatestContent()"
+        style="cursor: pointer"
+      >
+        <img [src]="currentImageLatest" alt="" class="img-fluid" />
+        <h1 [class]="isVisableLatestContent ? '' : 'disabled'">Latest</h1>
+      </div>
     </div>
     @if (isVisableWebsiteContent === true) {
       <div class="col-12 gallerydiv">
@@ -183,6 +190,33 @@
             </div>
           }
         }
+      </div>
+    }
+    @if (isVisableLatestContent) {
+      <div id="DesignsLatestContent" class="designs gallerydiv">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-6">
+            <a href="{{ workList[0].url }}" target="_blank">
+              <img
+                src="/images/ourwork/latest/{{ workList[0].number }}_image.jpg"
+                class="img-fluid img-thumbnail"
+              />
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="{{ workList[0].url }}" target="_blank">
+              <h3>{{ workList[0].title }}</h3>
+            </a>
+            <p>
+              {{ workList[0].content }}
+            </p>
+            <h4>
+              <a href="{{ workList[0].url }}" target="_blank"> Visit {{ workList[0].title }}</a>
+            </h4>
+          </div>
+          <div class="col-1"></div>
+        </div>
       </div>
     }
   </div>

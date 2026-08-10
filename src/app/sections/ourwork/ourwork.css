@@ -17,7 +17,33 @@
 .gallerydiv {
   text-align: center;
   padding-top: 40px;
-  padding-bottom: 30px;}
+  padding-bottom: 30px;
+}
+
+#DesignsLatestContent {
+  text-align: left;
+
+  h3 {
+    font-size: 38px;
+    text-transform: none;
+  }
+
+  h4 {
+    font-size: 28px;
+    text-transform: none;
+  }
+
+  p {
+    font-size: 19px;
+    line-height: 26px;
+    color: #7c7c7c;
+    padding-top: 10px;
+  }
+
+  a {
+    color: #0374f5
+  }
+}
 
 #GalleryButton {
   font-family: 'Berylium Rg';
@@ -37,7 +63,8 @@
   .getstartedbanner-container {
     height: 640px;
   }
-.designs-container h1 {
-  font-size: 24px;
+
+  .designs-container h1 {
+    font-size: 24px;
   }
 }
