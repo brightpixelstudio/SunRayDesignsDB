@@ -16,6 +16,9 @@ export class Ourwork implements OnInit {
   sources: string[] = [];
   worktypeid = WorkType.Web;
   myHtmlContent: string = '';
+  currentClient: number = 0;
+  prevImage: string = 'prevdisbtn.jpg';
+  nextImage: string = 'nextbtn.jpg';
 
   isVisableWebsiteContent: boolean = true;
   isVisablePrintContent: boolean = false;
@@ -32,6 +35,22 @@ export class Ourwork implements OnInit {
     private apiService: ApiService,
     private cdr: ChangeDetectorRef,
   ) {}
+
+  prevClient() {
+    this.currentClient = Math.max(0, this.currentClient - 1);
+    this.myHtmlContent = this.workList[this.currentClient]?.content ?? '';
+    this.nextImage =
+      this.currentClient < this.workList.length - 1 ? 'nextbtn.jpg' : 'nextdisbtn.jpg';
+    this.prevImage = this.currentClient > 0 ? 'prevbtn.jpg' : 'prevdisbtn.jpg';
+  }
+
+  nextClient() {
+    this.currentClient = Math.min(this.workList.length - 1, this.currentClient + 1);
+    this.myHtmlContent = this.workList[this.currentClient]?.content ?? '';
+    this.nextImage =
+      this.currentClient < this.workList.length - 1 ? 'nextbtn.jpg' : 'nextdisbtn.jpg';
+    this.prevImage = this.currentClient > 0 ? 'prevbtn.jpg' : 'prevdisbtn.jpg';
+  }
 
   ngOnInit(): void {
     this.loadWork(this.worktypeid);
