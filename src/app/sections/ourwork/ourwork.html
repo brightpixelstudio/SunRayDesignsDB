@@ -196,23 +196,25 @@
       <div id="DesignsLatestContent" class="designs gallerydiv">
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-6">
-            <a href="{{ workList[0].url }}" target="_blank">
+          <div class="col-5">
+            <a href="{{ workList[currentClient].url }}" target="_blank">
               <img
-                src="/images/ourwork/latest/{{ workList[0].number }}_image.jpg"
+                src="/images/ourwork/latest/{{ workList[currentClient].number }}_image.jpg"
                 class="img-fluid img-thumbnail"
               />
             </a>
           </div>
           <div class="col-4">
-            <a href="{{ workList[0].url }}" target="_blank">
-              <h3>{{ workList[0].title }}</h3>
+            <a href="{{ workList[currentClient].url }}" target="_blank">
+              <h3>{{ workList[currentClient].title }}</h3>
             </a>
             <p>
               <span [innerHTML]="myHtmlContent"></span>
             </p>
             <h4>
-              <a href="{{ workList[0].url }}" target="_blank"> Visit {{ workList[0].title }}</a>
+              <a href="{{ workList[currentClient].url }}" target="_blank">
+                Visit {{ workList[currentClient].title }}</a
+              >
             </h4>
           </div>
           <div class="col-2">
