@@ -14,8 +14,9 @@ import type { GetBlogPost } from '../../models/getblogpost';
   styleUrl: './blog.css',
 })
 export class Blog implements OnInit {
-  blogtypeid: number = BlogType.Design;
+  blogtypeid: number | undefined = BlogType.Design;
   year: number = new Date().getFullYear();
+  month: number | undefined;
   getBlogInformation: any = '';
   blogPost: GetBlogPost[] = [];
   isContentLoaded: boolean = false;
@@ -33,12 +34,13 @@ export class Blog implements OnInit {
 
   onCatagorySelect(selectedValue: any): void {
     this.blogtypeid = selectedValue;
+    this.month = undefined;
     this.loadPosts();
   }
 
   onYearSelect(selectedValue: any): void {
     this.year = selectedValue;
-    // this.getAllPostsCountByYearByMonth();
+    this.month = undefined;
     this.loadPosts();
   }
 
@@ -47,6 +49,7 @@ export class Blog implements OnInit {
     event.preventDefault();
 
     // set the new catagory type and get contents
+    this.month = undefined;
     this.blogtypeid = blogtypeid;
     this.loadPosts();
   }
@@ -56,9 +59,9 @@ export class Blog implements OnInit {
     event.preventDefault();
 
     // set the new catagory type and get contents
-    console.log(month);
-    //    this.blogtypeid = blogtypeid;
-    //    this.loadPosts();
+    this.blogtypeid = undefined;
+    this.month = month;
+    this.loadPosts();
   }
 
   truncateString(str: string, maxLength: number): string {
@@ -76,7 +79,7 @@ export class Blog implements OnInit {
     // get ALL Blog information
     this.isContentLoaded = false;
     this.noContent = false;
-    this.apiService.getBlogInformation(this.year, this.blogtypeid).subscribe({
+    this.apiService.getBlogInformation(this.year, this.month, this.blogtypeid).subscribe({
       next: (data) => {
         // Data maps exactly to the keys defined in forkJoin
         this.getBlogInformation = data;

@@ -13,14 +13,33 @@ export class ApiService {
   private apiUrl = 'https://localhost:7099/SunrayBlog'; // LOCAL ONLY
 
   // get ALL Blog information
-  getBlogInformation(yearparam: number, typeparam: number): Observable<any> {
+  getBlogInformation(
+    yearparam: number,
+    monthparam: number | undefined,
+    typeparam: number | undefined,
+  ): Observable<any> {
     // NOTE - you dont need models for this architecture
     //  const allposts$ = this.http.get(this.apiUrl + '/GetAllBlogPosts');
     const getallpostscountbyyearbymonth$ = this.http.get(
       this.apiUrl + `/GetAllPostsCountByYearByMonth?yearparam=${yearparam}`,
     );
+
+    // is there a blog type?
+    let typequeryparam: string = '';
+    if (typeparam != undefined) {
+      typequeryparam = `&typeparam=${typeparam}`;
+    }
+
+    // is there a month?
+    let monthqueryparam: string = '';
+    if (monthparam != undefined) {
+      monthqueryparam = `&monthparam=${monthparam}`;
+    }
     const postsbasedontypeandyear$ = this.http.get(
-      this.apiUrl + `/GetBlogPostsBasedOnTypeAndYear?typeparam=${typeparam}&yearparam=${yearparam}`,
+      this.apiUrl +
+        `/GetBlogPostsBasedOnTypeAndYear?&yearparam=${yearparam}` +
+        typequeryparam +
+        monthqueryparam,
     );
     const getallblogpostyears$ = this.http.get(this.apiUrl + '/GetAllBlogPostYears');
     const getallblogtypes$ = this.http.get(this.apiUrl + '/GetAllBlogTypes');
