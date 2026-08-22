@@ -51,6 +51,16 @@ export class Blog implements OnInit {
     this.loadPosts();
   }
 
+  onArchiveLinkClick(event: MouseEvent, month: number) {
+    // Prevent the browser from navigating to the href URL
+    event.preventDefault();
+
+    // set the new catagory type and get contents
+    console.log(month);
+    //    this.blogtypeid = blogtypeid;
+    //    this.loadPosts();
+  }
+
   truncateString(str: string, maxLength: number): string {
     // If the string is already short enough, return it as-is
     if (str.length <= maxLength) {
