@@ -94,7 +94,7 @@
               <div class="col-lg-4 col-sm-4">
                 <p class="summary">{{ post.summary }}</p>
                 <br />
-                <button>Learn More</button>
+                <a [routerLink]="['/blog', post.url]"><button>Learn More</button></a>
               </div>
             </div>
             <div class="row">
@@ -120,7 +120,7 @@
         @for (post of getBlogInformation.getlatestblogposts; track post.blogpostid) {
           <div class="row">
             <div class="col-lg-5 col-sm-5">
-              <a href="{{ post.url }}">
+              <a [routerLink]="['/blog', post.url]">
                 <img
                   class="img-fluid img-thumbnail"
                   src="../../images/blog/post{{ post.blogpostid }}.jpg"
@@ -129,7 +129,7 @@
             </div>
             <div class="col-lg-7 col-sm-7">
               <h5 class="latest">
-                <a href="{{ post.url }}">{{ post.title }}</a>
+                <a [routerLink]="['/blog', post.url]">{{ post.title }}</a>
               </h5>
               <p class="latest">
                 {{ post.summary }}

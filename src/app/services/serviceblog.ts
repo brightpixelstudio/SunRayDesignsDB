@@ -58,21 +58,8 @@ export class ApiService {
     });
   }
 
-  /*
-  getAllPostsCountByYearByMonth(yearparam: number): Observable<GetAllPostsCountByYearByMonth[]> {
-    const queryParams = new HttpParams().set('yearparam', yearparam.toString());
-
-    return this.http.get<GetAllPostsCountByYearByMonth[]>(
-      this.apiUrl + '/GetAllPostsCountByYearByMonth',
-      {
-        params: queryParams,
-      },
-    );
-  }
-    */
-
-  getBlogPost(blogpostid: number): Observable<GetBlogPost[]> {
-    const queryParams = new HttpParams().set('blogpostid', blogpostid.toString());
+  getBlogPost(url: string): Observable<GetBlogPost[]> {
+    const queryParams = new HttpParams().set('url', url);
 
     return this.http.get<GetBlogPost[]>(this.apiUrl + '/GetBlogPost', {
       params: queryParams,

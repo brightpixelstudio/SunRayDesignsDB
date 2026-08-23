@@ -1,11 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/serviceblog';
 import { BlogType } from '../../enums/blogtype';
-import type { GetBlogPost } from '../../models/getblogpost';
 
 @Component({
   selector: 'blog',
@@ -18,7 +16,6 @@ export class Blog implements OnInit {
   year: number = new Date().getFullYear();
   month: number | undefined;
   getBlogInformation: any = '';
-  blogPost: GetBlogPost[] = [];
   isContentLoaded: boolean = false;
   noContent: boolean = true;
   blogpostid: number = 5;
@@ -97,22 +94,6 @@ export class Blog implements OnInit {
       error: (err) => {
         this.noContent = true;
         this.cdr.detectChanges();
-        console.error('One or more requests failed:', err);
-      },
-    });
-  }
-
-  private loadPost(): void {
-    // get ALL Blog information
-    this.apiService.getBlogPost(this.blogpostid).subscribe({
-      next: (data) => {
-        this.blogPost = data;
-
-        // Force Angular to run change detection on this component
-        this.isContentLoaded = true;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
         console.error('One or more requests failed:', err);
       },
     });
