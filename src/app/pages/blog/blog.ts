@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/serviceblog';
 import { BlogType } from '../../enums/blogtype';
+import { truncateString } from '../../utils/utils';
 
 @Component({
   selector: 'blog',
@@ -61,17 +62,6 @@ export class Blog implements OnInit {
     this.loadPosts();
   }
 
-  truncateString(str: string, maxLength: number): string {
-    // If the string is already short enough, return it as-is
-    if (str.length <= maxLength) {
-      return str;
-    }
-
-    // Account for the 3 characters of the ellipsis
-    const ellipsis = '...';
-    return str.slice(0, maxLength - ellipsis.length) + ellipsis;
-  }
-
   private loadPosts(): void {
     // get ALL Blog information
     this.isContentLoaded = false;
@@ -84,7 +74,7 @@ export class Blog implements OnInit {
 
         // shorten the summary if needed
         for (const post of this.getBlogInformation.getlatestblogposts) {
-          post.summary = this.truncateString(post.summary, 110);
+          post.summary = truncateString(post.summary, 110);
         }
 
         // load a blog post
